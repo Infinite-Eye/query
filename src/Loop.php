@@ -8,6 +8,8 @@ class Loop
     {
         get_header();
 
+        do_action('ie/loop/before');
+
         if (have_posts()) {
             while (have_posts()) {
                 the_post();
@@ -15,6 +17,8 @@ class Loop
                 get_template_part('template-parts/content', $name);
             }
         }
+
+        do_action('ie/loop/after');
 
         get_footer();
     }
